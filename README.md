@@ -1,6 +1,7 @@
 # go-deb-version
 
 [![Build Status](https://travis-ci.org/knqyf263/go-deb-version.svg?branch=master)](https://travis-ci.org/knqyf263/go-deb-version)
+[![Go Report Card](https://goreportcard.com/badge/github.com/knqyf263/go-deb-version)](https://goreportcard.com/report/github.com/knqyf263/go-deb-version)
 
 A Go library for parsing package versions
 
