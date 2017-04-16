@@ -162,7 +162,17 @@ func (v1 Version) Compare(v2 Version) int {
 
 // String returns the full version string
 func (v1 Version) String() string {
-	return fmt.Sprintf("%d:%s-%s", v1.epoch, v1.upstreamVersion, v1.debianRevision)
+	version := ""
+	if v1.epoch > 0 {
+		version += fmt.Sprintf("%d:", v1.epoch)
+	}
+	version += v1.upstreamVersion
+
+	if v1.debianRevision != "" {
+		version += fmt.Sprintf("-%s", v1.debianRevision)
+
+	}
+	return version
 }
 
 func compare(v1, v2 string) int {

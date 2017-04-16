@@ -154,6 +154,27 @@ func TestLessThan(t *testing.T) {
 	}
 }
 
+func TestString(t *testing.T) {
+	cases := []struct {
+		v        Version
+		expected string
+	}{
+		{Version{2, "7.4.052", "1ubuntu3"}, "2:7.4.052-1ubuntu3"},
+		{Version{2, "7.4.052", "1"}, "2:7.4.052-1"},
+		{Version{0, "7.4.052", "1"}, "7.4.052-1"},
+		{Version{upstreamVersion: "7.4.052", debianRevision: "1"}, "7.4.052-1"},
+		{Version{epoch: 1, upstreamVersion: "7.4.052"}, "1:7.4.052"},
+		{Version{upstreamVersion: "7.4.052"}, "7.4.052"},
+	}
+	for _, tc := range cases {
+		actual := tc.v.String()
+		if actual != tc.expected {
+			t.Fatalf("v: %v\n\nexpected: %v\nactual: %v",
+				tc.v, tc.expected, actual)
+		}
+	}
+}
+
 func TestCompare(t *testing.T) {
 	cases := []struct {
 		v1       string
