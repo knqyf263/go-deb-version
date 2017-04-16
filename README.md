@@ -1,4 +1,7 @@
 # go-deb-version
+
+[![Build Status](https://travis-ci.org/knqyf263/go-deb-version.svg?branch=master)](https://travis-ci.org/knqyf263/go-deb-version)
+
 A Go library for parsing package versions
 
 go-deb-version is a library for parsing and comparing versions
