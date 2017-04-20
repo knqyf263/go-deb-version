@@ -14,7 +14,6 @@ The implementation is based on [Debian Policy Manual](https://www.debian.org/doc
 
 OS: Debian, Ubnutu, RHEL, CentOS 
 
-This can parse also [SemVer](http://semver.org/) (ex. 1.2.3)
 
 # Installation and Usage
 
