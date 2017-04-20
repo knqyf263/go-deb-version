@@ -14,6 +14,8 @@ The implementation is based on [Debian Policy Manual](https://www.debian.org/doc
 
 OS: Debian, Ubnutu, RHEL, CentOS 
 
+This can parse also [SemVer](http://semver.org/).
+
 # Installation and Usage
 
 Installation can be done with a normal go get:
