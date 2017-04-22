@@ -185,6 +185,13 @@ func compare(v1, v2 string) int {
 	numbers1, strings1 := extract(v1)
 	numbers2, strings2 := extract(v2)
 
+	if len(v1) > 0 && unicode.IsDigit(rune(v1[0])) {
+		strings1 = append([]string{""}, strings1...)
+	}
+	if len(v2) > 0 && unicode.IsDigit(rune(v2[0])) {
+		strings2 = append([]string{""}, strings2...)
+	}
+
 	for i := 0; ; i++ {
 		// Compare non-digit strings
 		diff := compareString(strings1.get(i), strings2.get(i))

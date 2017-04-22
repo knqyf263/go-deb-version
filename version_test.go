@@ -140,6 +140,16 @@ func TestLessThan(t *testing.T) {
 			true,
 		},
 		{
+			Version{upstreamVersion: "1.9.1", debianRevision: "2"},
+			Version{upstreamVersion: "1.16", debianRevision: "1+deb8u1"},
+			true,
+		},
+		{
+			Version{upstreamVersion: "1.9", debianRevision: "2"},
+			Version{upstreamVersion: "1.9.1", debianRevision: "1+deb8u1"},
+			true,
+		},
+		{
 			Version{upstreamVersion: "7.4.052"},
 			Version{epoch: 2, upstreamVersion: "7.4.052"},
 			true,
