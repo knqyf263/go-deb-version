@@ -12,7 +12,7 @@ go-deb-version is a library for parsing and comparing versions
 Versions used with go-deb-version must follow [deb-version](http://man.he.net/man5/deb-version) (ex. 2:6.0-9ubuntu1)  
 The implementation is based on [Debian Policy Manual](https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Version)
 
-OS: Debian, Ubnutu, RHEL, CentOS 
+OS: Debian, Ubnutu
 
 
 # Installation and Usage
