@@ -120,6 +120,12 @@ func verifyDebianRevision(str string) error {
 	return nil
 }
 
+// Valid validates the version
+func Valid(ver string) bool {
+	_, err := NewVersion(ver)
+	return err == nil
+}
+
 // Equal returns whether this version is equal with another version.
 func (v1 *Version) Equal(v2 Version) bool {
 	return v1.Compare(v2) == 0
