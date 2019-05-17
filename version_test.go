@@ -73,6 +73,33 @@ func TestNewVersion(t *testing.T) {
 	}
 }
 
+func TestValid(t *testing.T) {
+	cases := []struct {
+		version  string
+		expected bool
+	}{
+		{"1.2.3", true},
+		{"1:1.2.3", true},
+		{"A:1.2.3", false},
+		{"-1:1.2.3", false},
+		{"6.0-4.el6.x86_64", true},
+		{"6.0-9ubuntu1.5", true},
+		{"2:7.4.052-1ubuntu3.1", true},
+		{"2:-1ubuntu3.1", false},
+		{"2:A7.4.052-1ubuntu3.1", false},
+		{"2:7.4.!052-1ubuntu3.1", false},
+		{"7.4.052-!1ubuntu3.1", false},
+	}
+
+	for _, tc := range cases {
+		actual := Valid(tc.version)
+		if actual != tc.expected {
+			t.Fatalf(
+				"valid: %s\nexpected: %t\nactual: %t",
+				tc.version, tc.expected, actual)
+		}
+	}
+}
 func TestEqual(t *testing.T) {
 	cases := []struct {
 		v1       Version
