@@ -198,7 +198,16 @@ func compare(v1, v2 string) int {
 		strings2 = append([]string{""}, strings2...)
 	}
 
-	for i := 0; ; i++ {
+	var index int
+	c1 := len(strings1)
+	c2 := len(strings2)
+	if c1 >= c2 {
+		index = c1
+	} else {
+		index = c2
+	}
+
+	for i := 0; i < index; i++ {
 		// Compare non-digit strings
 		diff := compareString(strings1.get(i), strings2.get(i))
 		if diff != 0 {
@@ -211,6 +220,8 @@ func compare(v1, v2 string) int {
 			return diff
 		}
 	}
+
+	return 0
 }
 
 func compareString(s1, s2 string) int {
@@ -218,7 +229,16 @@ func compareString(s1, s2 string) int {
 		return 0
 	}
 
-	for i := 0; ; i++ {
+	var index int
+	c1 := len(s1)
+	c2 := len(s2)
+	if c1 >= c2 {
+		index = c1
+	} else {
+		index = c2
+	}
+
+	for i := 0; i < index; i++ {
 		a := 0
 		if i < len(s1) {
 			a = order(rune(s1[i]))
@@ -233,7 +253,7 @@ func compareString(s1, s2 string) int {
 			return a - b
 		}
 	}
-
+	return 0
 }
 
 // order function returns the number corresponding to rune
