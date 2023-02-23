@@ -137,13 +137,13 @@ func (v1 *Version) GreaterThan(v2 Version) bool {
 }
 
 // LessThan returns whether this version is less than another version.
-func (v1 Version) LessThan(v2 Version) bool {
+func (v1 *Version) LessThan(v2 Version) bool {
 	return v1.Compare(v2) < 0
 }
 
 // Compare returns an integer comparing two version according to deb-version.
 // The result will be 0 if v1==v2, -1 if v1 < v2, and +1 if v1 > v2.
-func (v1 Version) Compare(v2 Version) int {
+func (v1 *Version) Compare(v2 Version) int {
 	// Equal
 	if reflect.DeepEqual(v1, v2) {
 		return 0
@@ -167,7 +167,7 @@ func (v1 Version) Compare(v2 Version) int {
 }
 
 // String returns the full version string
-func (v1 Version) String() string {
+func (v1 *Version) String() string {
 	version := ""
 	if v1.epoch > 0 {
 		version += fmt.Sprintf("%d:", v1.epoch)
@@ -179,6 +179,18 @@ func (v1 Version) String() string {
 
 	}
 	return version
+}
+
+func (v1 *Version) Epoch() int {
+	return v1.epoch
+}
+
+func (v1 *Version) Version() string {
+	return v1.upstreamVersion
+}
+
+func (v1 *Version) Revision() string {
+	return v1.debianRevision
 }
 
 func compare(v1, v2 string) int {
