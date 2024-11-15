@@ -111,6 +111,7 @@ func TestEqual(t *testing.T) {
 		{Version{2, "7.4.052", "1ubuntu3"}, Version{2, "7.4.052", "1ubuntu3"}, true},
 		{Version{2, "7.4.052", "1ubuntu1"}, Version{2, "7.4.052", "1"}, false},
 		{Version{upstreamVersion: "7.4.052"}, Version{upstreamVersion: "7.4.052"}, true},
+		{Version{upstreamVersion: "3.12", debianRevision: "1+deb9u1build0.16.4.1"}, Version{upstreamVersion: "3.12", debianRevision: "1+deb9u1build0.16.04.1"}, true},
 	}
 	for _, tc := range cases {
 		actual := tc.v1.Equal(tc.v2)
