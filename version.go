@@ -210,15 +210,7 @@ func compare(v1, v2 string) int {
 		strings2 = append([]string{""}, strings2...)
 	}
 
-	var index int
-	c1 := len(strings1)
-	c2 := len(strings2)
-	if c1 >= c2 {
-		index = c1
-	} else {
-		index = c2
-	}
-
+	index := max(len(numbers1), len(numbers2), len(strings1), len(strings2))
 	for i := 0; i < index; i++ {
 		// Compare non-digit strings
 		diff := compareString(strings1.get(i), strings2.get(i))
@@ -241,15 +233,7 @@ func compareString(s1, s2 string) int {
 		return 0
 	}
 
-	var index int
-	c1 := len(s1)
-	c2 := len(s2)
-	if c1 >= c2 {
-		index = c1
-	} else {
-		index = c2
-	}
-
+	index := max(len(s1), len(s2))
 	for i := 0; i < index; i++ {
 		a := 0
 		if i < len(s1) {
